@@ -1,0 +1,18 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: next-docker
+  namespace: next-docker
+  labels:
+    app: next-docker
+spec:
+  containers:
+  - name: next-docker
+    image: next-docker:latest
+    imagePullPolicy: Never
+    env:
+    - name: ENVIRONMENT
+      value: "kubernetes-environment"
+    ports:
+    - containerPort: 3000
